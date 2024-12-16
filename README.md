@@ -32,4 +32,4 @@ This is a machine learning Flask application that predicts restaurant tips based
 - `/health` (GET): Health check endpoint
 
 ## Testing
-Run tests using: `python -m pytest tests/`
+Run tests using: `python -m unittest discover tests/`

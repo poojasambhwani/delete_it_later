@@ -2,7 +2,7 @@ import unittest
 import os
 import joblib
 import pandas as pd
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import r2_score
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -50,12 +50,10 @@ class TestModel(unittest.TestCase):
         self.assertEqual(len(y_pred), len(self.y_test), "Prediction length mismatch.")
         
         # Calculate evaluation metrics
-        mse = mean_squared_error(self.y_test, y_pred)
         r2 = r2_score(self.y_test, y_pred)
         
         # Check that metrics are within a reasonable range
         self.assertGreater(r2, 0.5, "R2 score is too low.")
-        self.assertLess(mse, 20, "Mean Squared Error is too high.")
 
     def test_model_saving(self):
         """

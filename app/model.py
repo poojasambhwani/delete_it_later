@@ -2,7 +2,7 @@ import joblib
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import r2_score
 import numpy as np
 import pandas as pd
 
@@ -27,9 +27,8 @@ lr.fit(x_train,y_train)
 
 y_pred = lr.predict(x_test)
 
-mse = mean_squared_error(y_pred, y_test)
 score = r2_score(y_pred,y_test)
-print(mse, score)
+print(score)
 
 # Save the model
 joblib.dump(lr, 'models/tips_model.pkl')
